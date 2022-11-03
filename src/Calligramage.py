@@ -1,46 +1,31 @@
 import arcade
 import os
+from src.view.MainMenuView import MainMenuView
+
+# Our "launcher" size
+SCREEN_WIDTH = 1280
+SCREEN_HEIGHT = 800
+SCREEN_TITLE = "Calligramage"
 
 
-class Calligramage(arcade.Window):
-    def __init__(self, width, height, title):
-        """ Set up the class. """
-        super().__init__(width, height, title, resizable=True)
+# Core window management class
+class Calligramage:
 
+    def __init__(self):
         # Set the working directory (where we expect to find files) to the same
         # directory this .py file is in.
+        self.window = None
+        self.active_view = None
         file_path = os.path.dirname(os.path.abspath(__file__))
         os.chdir(file_path)
 
-        # Physics engine
-        self.physics_engine = None
+    def show_view(self, view):
+        self.active_view = view
+        self.active_view.setup()
+        self.window.show_view(self.active_view)
 
-        # TODO: Complete any other initialization we need
-
-    def setup(self):
-        """ Create game items """
-        # Create the physics engine
-        # self.physics_engine = arcade.PhysicsEngineSimple(self.player_sprite, self.wall_list)
-
-    def on_draw(self):
-        """ Draw everything. """
-        self.clear()
-        arcade.draw_text("Calligramage", 10, 10, arcade.color.WHITE, 14)
-
-    def on_resize(self, width, height):
-        """ User resizes the screen. """
-
-    def on_key_press(self, key, _):
-        """A key is pressed. """
-
-    def on_key_release(self, key, _):
-        """The user releases a key. """
-
-    def scroll_screen(self):
-        """ Manage Scrolling """
-
-    def on_update(self, delta_time):
-        """ Movement and game logic """
-
-        # Call update on all sprites
-        # self.physics_engine.update()
+    def run(self):
+        """ Run game """
+        self.window = arcade.Window(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE, resizable=True)
+        self.window.show_view(MainMenuView())
+        arcade.run()
