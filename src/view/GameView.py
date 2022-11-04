@@ -9,4 +9,8 @@ class GameView(AbstractView):
     def on_draw(self):
         self.clear()
         arcade.draw_text("Calligramage gameplay view", self.game_width / 2, self.game_height / 2,
-                         arcade.color.WHITE, font_size=50, anchor_x="center")
+                         arcade.color.WHITE, font_size=self.scaled(50), anchor_x="center")
+
+    def on_key_press(self, symbol: int, modifiers: int):
+        if symbol == arcade.key.ESCAPE:
+            arcade.close_window()
