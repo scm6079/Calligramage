@@ -19,6 +19,7 @@ class MainMenuView(AbstractView):
         super().__init__()
         self.background = None
         self.emitter = None
+        self.soundPlayer = None
         self.emitter_timeout = 0
 
     def create_wand_emitter(self):
@@ -40,6 +41,12 @@ class MainMenuView(AbstractView):
         # Load the background image
         self.background = arcade.load_texture("resources/images/main-menu.png")
         self.emitter = self.create_wand_emitter()
+        sound = arcade.load_sound("resources/sounds/MainMenu.wav", True)
+        self.soundPlayer = arcade.play_sound(sound, volume=0.8, looping=True)
+
+    def on_hide_view(self):
+        arcade.stop_sound(self.soundPlayer)
+        self.emitter = None
 
     def on_resize(self, width, height):
         super().on_resize(width, height)
