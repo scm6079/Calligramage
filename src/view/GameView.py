@@ -1,4 +1,5 @@
 import arcade
+import src.ViewManager as ViewManager
 from src.view.AbstractView import AbstractView
 
 
@@ -13,4 +14,4 @@ class GameView(AbstractView):
 
     def on_key_press(self, symbol: int, modifiers: int):
         if symbol == arcade.key.ESCAPE:
-            arcade.close_window()
+            ViewManager.show(ViewManager.VIEW_MAIN_MENU)

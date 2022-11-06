@@ -1,6 +1,6 @@
 import arcade
+import src.ViewManager as ViewManager
 from src.view.AbstractView import AbstractView
-from src.view.GameView import GameView
 
 
 class CinematicIntroView(AbstractView):
@@ -16,4 +16,4 @@ class CinematicIntroView(AbstractView):
 
     def on_mouse_press(self, _x, _y, _button, _modifiers):
         """ If the user presses the mouse button, start the game. """
-        self.window.show_view(GameView())
+        ViewManager.show(ViewManager.VIEW_GAME)

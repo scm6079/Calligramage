@@ -1,6 +1,6 @@
 import arcade
 import os
-from src.view.MainMenuView import MainMenuView
+import src.ViewManager as ViewManager
 
 # Our "launcher" size
 SCREEN_WIDTH = 1280
@@ -21,8 +21,9 @@ class Calligramage:
         os.chdir(parent_path)
 
     def init_resources(self):
-        """ Initialize fonts and sounds """
+        """ Initialize fonts, sounds, and views """
         arcade.load_font("resources/fonts/EagleLake-Regular.ttf")
+        ViewManager.arcade_window = self.window
 
     def show_view(self, view):
         self.active_view = view
@@ -33,5 +34,5 @@ class Calligramage:
         """ Run game """
         self.window = arcade.Window(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE, resizable=True)
         self.init_resources()
-        self.window.show_view(MainMenuView())
+        ViewManager.show(ViewManager.VIEW_MAIN_MENU)
         arcade.run()

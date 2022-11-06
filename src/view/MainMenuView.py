@@ -1,7 +1,7 @@
 import arcade
 import pyglet
+import src.ViewManager as ViewManager
 from src.view.AbstractView import AbstractView
-from src.view.CinematicIntroView import CinematicIntroView
 
 MENU_TITLE_FONT_SIZE = 42
 MENU_CHOICE_FONT_SIZE = 30
@@ -110,7 +110,7 @@ class MainMenuView(AbstractView):
     def on_mouse_press(self, _x, _y, _button, _modifiers):
         # If the user presses the mouse button, go to the menu choice they clicked.
         # TODO: Figure out if the user clicked on the "New Game" button
-        self.window.show_view(CinematicIntroView())
+        ViewManager.show(ViewManager.VIEW_CINEMATIC_INTRO)
 
     def on_key_press(self, key, _modifiers):
         if key == arcade.key.UP:
@@ -125,7 +125,7 @@ class MainMenuView(AbstractView):
 
         if key == arcade.key.ENTER:
             if self.selected == 0:
-                self.window.show_view(CinematicIntroView())
+                ViewManager.show(ViewManager.VIEW_CINEMATIC_INTRO)
             elif self.selected == 1:
                 print("Load Game")
             elif self.selected == 2:
