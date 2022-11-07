@@ -5,11 +5,9 @@ from src.view.AbstractView import AbstractView
 MENU_TITLE_FONT_SIZE = 42
 MENU_CHOICE_FONT_SIZE = 30
 MENU_LINE_HEIGHT = 75
-MENU_TOP_PAD = 100
-MENU_CENTER_POS = 952
-MENU_TOP_POS = 628
-WAND_OFFSET_X = 50
-WAND_OFFSET_Y = 60
+MENU_TOP_PAD = 80
+MENU_CENTER_POS = 640
+MENU_TOP_POS = 680
 
 
 class OptionsView(AbstractView):
@@ -20,7 +18,7 @@ class OptionsView(AbstractView):
 
     def on_show_view(self):
         arcade.set_background_color(arcade.color.PURPLE)
-        self.background = arcade.load_texture("resources/images/main-menu.png")
+        self.background = arcade.load_texture("resources/images/options-menu.png")
 
     def on_draw(self):
         self.clear()
