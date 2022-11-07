@@ -1,6 +1,6 @@
 # Import all the views and provide a way to get them by name
 from src.view.MainMenuView import MainMenuView
-# from src.view.OptionsView import OptionsView
+from src.view.OptionsView import OptionsView
 from src.view.CinematicIntroView import CinematicIntroView
 from src.view.GameView import GameView
 # from src.view.LoadGameView import LoadGameView
@@ -37,8 +37,8 @@ def show(view_name):
 
     if view_name == VIEW_MAIN_MENU:
         view = MainMenuView()
-    # elif view_name == VIEW_OPTIONS:
-    #     view = OptionsView()
+    elif view_name == VIEW_OPTIONS:
+        view = OptionsView()
     elif view_name == VIEW_CINEMATIC_INTRO:
         view = CinematicIntroView()
     elif view_name == VIEW_GAME:

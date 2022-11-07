@@ -1,5 +1,4 @@
 import arcade
-import pyglet
 import src.ViewManager as ViewManager
 from src.view.AbstractView import AbstractView
 
