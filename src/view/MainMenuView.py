@@ -45,7 +45,7 @@ class MainMenuView(AbstractView):
         backgroundMusic = arcade.load_sound("resources/sounds/main_menu_music.wav", True)
         self.soundPlayer = arcade.play_sound(backgroundMusic, volume=0.8, looping=True)
 
-        self.clickSound = arcade.load_sound("resources/sounds/menu_rollover.mp3", True)
+        self.clickSound = arcade.load_sound("resources/sounds/menu_rollover.wav", False)
 
     def on_hide_view(self):
         arcade.stop_sound(self.soundPlayer)
